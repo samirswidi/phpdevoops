@@ -1,5 +1,4 @@
-
-name: Build and deploy PHP app to Azure Web App
+name: Build, test, and deploy PHP app to Azure Web App
 
 on:
   push:
@@ -8,8 +7,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: 'webapp45693926'    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  PHP_VERSION: '8.x'                  # set this to the PHP version to use
+  AZURE_WEBAPP_PACKAGE_PATH: '.'          # set this to the path to your web app project, defaults to the repository root
+  PHP_VERSION: '8.x'                      # set this to the PHP version to use
 
 permissions:
   contents: read
@@ -26,7 +25,14 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
 
-     
+      - name: Install dependencies
+        run: |
+          composer install
+
+      - name: Run tests
+        run: |
+          ./vendor/bin/phpunit --configuration phpunit.xml
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
