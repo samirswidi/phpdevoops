@@ -8,26 +8,27 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+
     steps:
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
+
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to DockerHub
+
+      - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - 
-        name: Check
-        uses: actions/checkout@v2
-      -      
-        name: Build and push
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-         
-          push: true
-          tags: samirswidi/phpdevoops:1.0.${{github.run_number}}
+          context: .                               # The context of the Docker build
+          file: ./Dockerfile                       # Path to the Dockerfile
+          push: true                               # Push to DockerHub after building
+          tags: samirswidi/phpdevoops:1.0.${{ github.run_number }}  # Tag with unique version
