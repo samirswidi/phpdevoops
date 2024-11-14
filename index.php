@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-    <h1>Real-Time Barcode Scanner:deploy in azure</h1>
+    <h1>Real-Time Barcode Scanner:deploy in azure 14-11-2024</h1>
     <select id="camera-select"></select>
     <video id="video" autoplay></video>
     <div id="scanned-result">Scanned Barcode Number: <span id="result"></span></div>
