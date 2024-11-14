@@ -39,6 +39,16 @@
             padding: 8px;
             font-size: 16px;
         }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -92,5 +102,8 @@
             });
         }
     </script>
+     <footer>
+        Created by Souidi Samir (<?php echo date('Y'); ?>)
+    </footer>
 </body>
 </html>
