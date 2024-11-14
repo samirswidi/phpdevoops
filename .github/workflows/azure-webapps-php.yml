@@ -25,18 +25,35 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
 
-      - name: Check if PHPUnit is installed
+      - name: Check if composer.json exists
+        id: check_files
+        uses: andstor/file-existence-action@87d74d4732ddb824259d80c8a508c0124bf1c673
+        with:
+          files: 'composer.json'
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          if ! command -v phpunit &> /dev/null
-          then
-            echo "PHPUnit could not be found. Please install it."
-            exit 1
-          fi
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Set up dependency caching for faster installs
+        uses: actions/cache@v3
+        if: steps.check_files.outputs.files_exists == 'true'
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Run composer install if composer.json exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
       - name: Run PHPUnit tests
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          # Run tests with PHPUnit, assuming PHPUnit is installed globally
-          phpunit --configuration phpunit.xml
+          ./vendor/bin/phpunit --configuration phpunit.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
