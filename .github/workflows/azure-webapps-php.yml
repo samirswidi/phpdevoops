@@ -25,13 +25,18 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
 
-      - name: Install dependencies
+      - name: Check if PHPUnit is installed
         run: |
-          composer install
+          if ! command -v phpunit &> /dev/null
+          then
+            echo "PHPUnit could not be found. Please install it."
+            exit 1
+          fi
 
-      - name: Run tests
+      - name: Run PHPUnit tests
         run: |
-          ./vendor/bin/phpunit --configuration phpunit.xml
+          # Run tests with PHPUnit, assuming PHPUnit is installed globally
+          phpunit --configuration phpunit.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
