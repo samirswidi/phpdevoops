@@ -5,7 +5,7 @@ function getCurrentYear() {
 
 // Another example of a PHP function you might want to test
 function getFullDate() {
-    return date('Y-m-d');
+    return date('Y-m-d H:i:s');
 }
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ function getFullDate() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Barcode Scanner with ZXing</title>
+    <title>Real-Time Barcode Scanner with ZXing--</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -102,7 +102,7 @@ function getFullDate() {
 <body>
     <h1>Real-Time Barcode Scanner</h1>
     <h2>Réalisé par Souidi Samir</h2>
-    <p>Deploy in Azure 14-11-2024</p>
+    <p>Deploy in Azure <h2><?php echo getFullDate(); ?></h2></p>
 
     <!-- Camera selection dropdown -->
     <select id="camera-select"></select>
@@ -112,7 +112,7 @@ function getFullDate() {
 
     <!-- Scanned barcode result -->
     <div id="scanned-result">Scanned Barcode Number: <span id="result"></span></div>
-<h2><?php echo getFullDate(); ?></h2>
+
     <!-- Loading spinner -->
     <div id="loading-spinner">Loading camera...</div>
 
