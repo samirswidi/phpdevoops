@@ -186,7 +186,7 @@ function getCurrentYear() {
     </script>
 
     <footer>
-        Created by Souidi Samir  ( <?php
+        Created by -Souidi Samir-  ( <?php
 echo getCurrentYear();
 ?>)
     </footer>
