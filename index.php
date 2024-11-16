@@ -111,7 +111,7 @@ function getFullDate() {
     <video id="video" autoplay></video>
 
     <!-- Scanned barcode result -->
-    <div id="scanned-result">Scanned Barcode Number: <span id="result"></span></div>
+    <div id="scanned-result">Scanned Barcode Number:hhhh <span id="result"></span></div>
 
     <!-- Loading spinner -->
     <div id="loading-spinner">Loading camera... test test</div>
