@@ -56,7 +56,7 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: composer install --no-progress --no-suggest
+        run: composer install --no-progress
 
       - name: Run tests
         run: vendor/bin/phpunit --testdox
