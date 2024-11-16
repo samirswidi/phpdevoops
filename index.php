@@ -13,7 +13,7 @@ function getFullDate() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Barcode Scanner with ZXing--</title>
+    <title>Real-Time Barcode Scanner with ZXing </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -114,7 +114,7 @@ function getFullDate() {
     <div id="scanned-result">Scanned Barcode Number: <span id="result"></span></div>
 
     <!-- Loading spinner -->
-    <div id="loading-spinner">Loading camera...</div>
+    <div id="loading-spinner">Loading camera... test test</div>
 
     <!-- Restart scanner button -->
     <button id="restart-scanner">Restart Scanner</button>
