@@ -1,3 +1,8 @@
+<?php
+function getCurrentYear() {
+    return date('Y');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,9 +187,7 @@
 
     <footer>
         Created by Souidi Samir ( <?php
-function getCurrentYear() {
-    return date('Y');
-}
+echo getCurrentYear();
 ?>)
     </footer>
 </body>
