@@ -2,6 +2,11 @@
 function getCurrentYear() {
     return date('Y');
 }
+
+// Another example of a PHP function you might want to test
+function getFullDate() {
+    return date('Y-m-d');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +112,7 @@ function getCurrentYear() {
 
     <!-- Scanned barcode result -->
     <div id="scanned-result">Scanned Barcode Number: <span id="result"></span></div>
-
+<h2><?php echo getFullDate(); ?></h2>
     <!-- Loading spinner -->
     <div id="loading-spinner">Loading camera...</div>
 
