@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-    <h1>Real-Time Barcode Scanner:</h1>
+    <h1>Real-Time Barcode Scanner:----</h1>
     <h2>Réalisé par Souidi Samir</h2>
     <p>deploy in azure 14-11-2024</p>
     <select id="camera-select"></select>
