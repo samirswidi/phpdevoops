@@ -181,7 +181,11 @@
     </script>
 
     <footer>
-        Created by Souidi Samir (<?php echo date('Y'); ?>)
+        Created by Souidi Samir ( <?php
+function getCurrentYear() {
+    return date('Y');
+}
+?>)
     </footer>
 </body>
 </html>
