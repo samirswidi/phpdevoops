@@ -48,7 +48,8 @@ jobs:
           sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
 
       - name: Set JAVA_HOME to Java 17
-        run: echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
+        run: export "PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH"
+
 
       - name: Check Java version
         run: java -version  # Ensure Java 17 is available
