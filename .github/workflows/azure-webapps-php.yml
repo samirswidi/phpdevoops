@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin'
+          distribution: 'temurin'  # Utilisation de Temurin pour Java 17
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
