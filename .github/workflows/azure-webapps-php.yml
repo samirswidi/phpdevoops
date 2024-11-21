@@ -16,13 +16,16 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up PHP environment
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'  # Use the Temurin JDK distribution for Java 17
+
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -30,23 +33,23 @@ jobs:
           extensions: mbstring, intl, pdo, mysqli
           coverage: none
 
-      # Step 3: Install dependencies via Composer
       - name: Install dependencies
         run: composer install --no-progress
 
-      # Step 4: Run PHPUnit tests
       - name: Run tests
         run: vendor/bin/phpunit --testdox tests/GetCurrentYearTest.php
 
-      # Step 5: Install SonarScanner
       - name: Install SonarScanner
         run: |
+          # Télécharger et extraire SonarScanner
           curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
           unzip sonar-scanner.zip
           sudo mv sonar-scanner-4.8.0.2856-linux /opt/sonar-scanner
           sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
 
-      # Step 6: Run SonarQube analysis
+      - name: Check Java version
+        run: java -version  # Ensure Java 17 is available
+
       - name: Run SonarQube Scanner
         env:
           SONAR_HOST_URL: ${{ secrets.SONARQUBE_URL }}
