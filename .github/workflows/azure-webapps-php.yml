@@ -39,7 +39,7 @@ jobs:
       - name: Run tests
         run: vendor/bin/phpunit --testdox tests/GetCurrentYearTest.php
 
-            - name: Install SonarScanner version 6.2.1
+      - name: Install SonarScanner version 6.2.1
         run: |
           # Télécharger SonarScanner version 6.2.1 avec vérification d'erreurs
           curl -f -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.2.1.4610-linux-x64.zip
