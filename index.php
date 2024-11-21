@@ -103,7 +103,7 @@ function getFullDate() {
     <h1>Real-Time Barcode Scanner</h1>
     <h2>Réalisé par Souidi Samir</h2>
     <p>Deploy in Azure <h2><?php echo getFullDate(); ?></h2></p>
-
+<h2>Modification le 21-11-2024</h2>
     <!-- Camera selection dropdown -->
     <select id="camera-select"></select>
 
@@ -111,7 +111,7 @@ function getFullDate() {
     <video id="video" autoplay></video>
 
     <!-- Scanned barcode result -->
-    <div id="scanned-result">Scanned Barcode Number:hhhh <span id="result"></span></div>
+    <div id="scanned-result">Scanned Barcode Number: <span id="result"></span></div>
 
     <!-- Loading spinner -->
     <div id="loading-spinner">Loading camera... test test</div>
