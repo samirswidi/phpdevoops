@@ -39,15 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for PR analysis
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=samirswidi
-            -Dsonar.projectKey=samirswidi_phpdevoops
-            -Dsonar.branch.name=${{ github.ref_name }}
-            -Dsonar.pullrequest.key=${{ github.event.pull_request.number || '' }}
-            -Dsonar.pullrequest.branch=${{ github.head_ref || github.ref_name }}
-            -Dsonar.pullrequest.base=${{ github.base_ref || 'main' }}
-
+        
   docker-build-push:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
