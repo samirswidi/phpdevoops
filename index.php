@@ -13,7 +13,7 @@ function getFullDate() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Barcode Scanner with ZXing </title>
+    <title>Real-Time Barcode Scanner with ZXing --</title>
     <style>
         body {
             font-family: Arial, sans-serif;
