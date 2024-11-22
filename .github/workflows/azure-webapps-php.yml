@@ -41,6 +41,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
+            -X
             -Dsonar.organization=samirswidi
             -Dsonar.projectKey=phpdevoops
         env:
