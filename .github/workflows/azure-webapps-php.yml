@@ -1,4 +1,4 @@
-name: Build, test, and deploy PHP app to Azure Web App with Docker
+name: Test (avec phpunit et SonarQube), Build image docker, and deploy PHP app to Azure Web App with Docker
 
 on:
   push:
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   test:
-    name: Run Tests and SonarQube Analysis
+    name: Run Tests avec phpUnit et SonarQube 
     runs-on: ubuntu-latest
 
     steps:
@@ -31,10 +31,6 @@ jobs:
           extensions: mbstring, intl, pdo, mysqli
           coverage: none
 
-      - name: Install dependencies
-        run: composer install --no-progress
-      - name: Install dependencies
-        run: composer install --no-progress
 
       - name: Run tests using phpunit
         run: vendor/bin/phpunit --testdox tests/GetCurrentYearTest.php
