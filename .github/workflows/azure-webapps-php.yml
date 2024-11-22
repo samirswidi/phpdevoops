@@ -44,6 +44,10 @@ jobs:
             -X
             -Dsonar.organization=samirswidi
             -Dsonar.projectKey=phpdevoops
+            -Dsonar.branch.name=main
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+            -Dsonar.pullrequest.branch=${{ github.head_ref }}
+            -Dsonar.pullrequest.base=${{ github.base_ref }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
