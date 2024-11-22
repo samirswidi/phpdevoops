@@ -30,11 +30,14 @@ jobs:
           php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, intl, pdo, mysqli
           coverage: none
-
-
+          #installation des dépendances pour test avec phpunit
+      - name: Install dependencies 
+        run: composer install --no-progress
+      - name: Install dependencies
+        run: composer install --no-progress
       - name: Run tests using phpunit
         run: vendor/bin/phpunit --testdox tests/GetCurrentYearTest.php
-        
+         #Exécuter SonarQube scan pour scanner notre code
       - name: Run SonarQube Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
