@@ -101,9 +101,9 @@ function getFullDate() {
 </head>
 <body>
     <h1>Real-Time Barcode Scanner</h1>
-    <h2>Réalisé par Souidi Samir</h2>
+    <h2>Réalisé par Souidi Samir et Trabelsi Dhia</h2>
     <p>Deploy in Azure <h2><?php echo getFullDate(); ?></h2></p>
-<h2>Modification le 21-11-2024</h2>
+    <h2>Modification le 22-11-2024</h2>
     <!-- Camera selection dropdown -->
     <select id="camera-select"></select>
 
